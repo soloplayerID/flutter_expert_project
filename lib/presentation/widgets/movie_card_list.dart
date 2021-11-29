@@ -40,6 +40,18 @@ class MovieCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: kHeading6,
                     ),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 6.0),
+                      child: Text(
+                        'Movie',
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.yellow,
+                      ),
+                    ),
                     SizedBox(height: 16),
                     Text(
                       movie.overview ?? '-',

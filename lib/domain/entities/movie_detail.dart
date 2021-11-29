@@ -1,5 +1,6 @@
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:equatable/equatable.dart';
+import 'package:ditonton/data/models/genre_model.dart';
 
 class MovieDetail extends Equatable {
   MovieDetail({

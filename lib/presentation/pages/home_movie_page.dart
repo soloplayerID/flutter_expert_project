@@ -40,14 +40,21 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               currentAccountPicture: CircleAvatar(
                 backgroundImage: AssetImage('assets/circle-g.png'),
               ),
-              accountName: Text('Ditonton'),
-              accountEmail: Text('ditonton@dicoding.com'),
+              accountName: Text('Ilham'),
+              accountEmail: Text('ilham@dicoding.com'),
             ),
             ListTile(
               leading: Icon(Icons.movie),
               title: Text('Movies'),
               onTap: () {
                 Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.tv_rounded),
+              title: Text('Tv Series'),
+              onTap: () {
+                Navigator.pushNamed(context, '/hometvseries');
               },
             ),
             ListTile(
