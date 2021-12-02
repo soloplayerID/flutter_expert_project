@@ -200,22 +200,6 @@ void main() {
     expect(listViewFinder, findsWidgets);
   });
 
-  testWidgets('Page should display season card when season data loaded',
-      (WidgetTester tester) async {
-    when(mockNotifier.tvSeriesState).thenReturn(RequestState.Loaded);
-    when(mockNotifier.tvSeries).thenReturn(testTvSeriesDetailWithSeason);
-    when(mockNotifier.recommendationState).thenReturn(RequestState.Loaded);
-    when(mockNotifier.tvSeriesRecommendations).thenReturn(<TvSeries>[]);
-    when(mockNotifier.isAddedToWatchlist).thenReturn(false);
-    when(mockNotifier.watchlistMessage).thenReturn('Failed');
-
-    final seasonCardFinder = find.byType(SeasonCard);
-
-    await tester.pumpWidget(_makeTestableWidget(TvSeriesDetailPage(id: 1)));
-
-    expect(seasonCardFinder, findsOneWidget);
-  });
-
   testWidgets('Page should display message text when error',
       (WidgetTester tester) async {
     when(mockNotifier.tvSeriesState).thenReturn(RequestState.Error);

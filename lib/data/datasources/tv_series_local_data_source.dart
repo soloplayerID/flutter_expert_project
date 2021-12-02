@@ -3,8 +3,8 @@ import 'package:ditonton/data/datasources/db/database_helper.dart';
 import 'package:ditonton/data/models/tv_series_table.dart';
 
 abstract class TvSeriesLocalDataSource {
-  Future<String> addWatchlist(TvSeriesTable tvSeries);
-  Future<String> deleteWatchlist(TvSeriesTable tvSeries);
+  Future<String> insertWatchlist(TvSeriesTable tvSeries);
+  Future<String> removeWatchlist(TvSeriesTable tvSeries);
   Future<TvSeriesTable?> getTvSeriesById(int id);
   Future<List<TvSeriesTable>> getWatchlistTvSeries();
 }
@@ -13,26 +13,6 @@ class TvSeriesLocalDataSourceImpl implements TvSeriesLocalDataSource {
   final DatabaseHelper databaseHelper;
 
   TvSeriesLocalDataSourceImpl({required this.databaseHelper});
-
-  @override
-  Future<String> addWatchlist(TvSeriesTable tvSeries) async {
-    try {
-      await databaseHelper.addWatchlistTv(tvSeries);
-      return 'Added to Watchlist';
-    } catch (e) {
-      throw DatabaseException(e.toString());
-    }
-  }
-
-  @override
-  Future<String> deleteWatchlist(TvSeriesTable tvSeries) async {
-    try {
-      await databaseHelper.deleteWatchlistTv(tvSeries);
-      return 'Removed from Watchlist';
-    } catch (e) {
-      throw DatabaseException(e.toString());
-    }
-  }
 
   @override
   Future<TvSeriesTable?> getTvSeriesById(int id) async {
@@ -48,5 +28,25 @@ class TvSeriesLocalDataSourceImpl implements TvSeriesLocalDataSource {
   Future<List<TvSeriesTable>> getWatchlistTvSeries() async {
     final result = await databaseHelper.getWatchlistTvSeries();
     return result.map((data) => TvSeriesTable.fromMap(data)).toList();
+  }
+
+  @override
+  Future<String> insertWatchlist(TvSeriesTable tvSeries) async {
+    try {
+      await databaseHelper.insertWatchlistTv(tvSeries);
+      return 'Added to Watchlist';
+    } catch (e) {
+      throw DatabaseException(e.toString());
+    }
+  }
+
+  @override
+  Future<String> removeWatchlist(TvSeriesTable tvSeries) async {
+    try {
+      await databaseHelper.removeWatchlistTv(tvSeries);
+      return 'Removed from Watchlist';
+    } catch (e) {
+      throw DatabaseException(e.toString());
+    }
   }
 }

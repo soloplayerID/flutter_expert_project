@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/data/models/season_model.dart';
+import 'package:ditonton/domain/entities/episode.dart';
 import 'package:ditonton/domain/entities/season_detail.dart';
 import 'package:ditonton/presentation/provider/tv/season_detail_notifier.dart';
 import 'package:flutter/material.dart';
@@ -201,7 +201,7 @@ class EpisodeContent extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          episode.airDate ?? "-",
+                          episode.airDate,
                         ),
                       ],
                     ),

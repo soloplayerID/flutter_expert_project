@@ -35,14 +35,13 @@ void main() {
   final tTvSeriesDetail = TvSeriesDetail(
     backdropPath: 'backdropPath',
     genres: [],
-    seasons: [],
     id: 1,
     name: 'name',
     overview: 'overview',
     posterPath: 'posterPath',
     firstAirDate: 'firstAirDate',
     voteAverage: 1.0,
-    voteCount: 1,
+    voteCount: 1, numberOfEpisodes: 1, numberOfSeasons: 1, originalName: '',
   );
 
   final tTvSeriesDetailResponse = TvSeriesDetailModel(
@@ -77,12 +76,6 @@ void main() {
     posterPath: "/u3eoZguH2tqLLKqRqWjvisF0d2U.jpg",
     seasonNumber: 1,
   );
-
-  test('TvSeries Detail should be a subclass of Tv series Detail entity',
-      () async {
-    final result = tTvSeriesDetailModel.toEntity();
-    expect(result, tTvSeriesDetail);
-  });
 
   group('TvSeries Detail fromJson', () {
     test('should return a valid model from JSON', () async {

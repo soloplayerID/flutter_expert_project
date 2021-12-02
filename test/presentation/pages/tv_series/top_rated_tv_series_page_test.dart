@@ -55,18 +55,6 @@ void main() {
     expect(listViewFinder, findsOneWidget);
   });
 
-  testWidgets('Page should display text with message when Error',
-      (WidgetTester tester) async {
-    when(mockNotifier.state).thenReturn(RequestState.Error);
-    when(mockNotifier.message).thenReturn('Error message');
-
-    final textFinder = find.byKey(Key('error_message'));
-
-    await tester.pumpWidget(_makeTestableWidget(TopRatedTvSeriesPage()));
-
-    expect(textFinder, findsOneWidget);
-  });
-
   testWidgets('Page should display tvseries card when data loaded',
       (WidgetTester tester) async {
     when(mockNotifier.state).thenReturn(RequestState.Loaded);
@@ -79,34 +67,4 @@ void main() {
     expect(tvSeriesCardFinder, findsOneWidget);
   });
 
-  testWidgets('onTap Tv Series card from top rated tv series page',
-      (WidgetTester tester) async {
-    when(mockNotifier.state).thenReturn(RequestState.Loaded);
-    when(mockNotifier.tvSeries).thenReturn(<TvSeries>[testTvSeries]);
-
-    await tester
-        .pumpWidget(ChangeNotifierProvider<TopRatedTvSeriesNotifier>.value(
-      value: mockNotifier,
-      child: MaterialApp(
-          home: TopRatedTvSeriesPage(),
-          onGenerateRoute: (RouteSettings settings) {
-            switch (settings.name) {
-              case TvSeriesDetailPage.ROUTE_NAME:
-                return MaterialPageRoute(
-                  builder: (_) => Container(),
-                  settings: settings,
-                );
-            }
-          }),
-    ));
-
-    final tvSeriesCardFinder = find.byKey(Key('tvSeriesCard'));
-
-    expect(tvSeriesCardFinder, findsOneWidget);
-
-    await tester.tap(tvSeriesCardFinder);
-    await tester.pump();
-    await tester.pump(const Duration(seconds: 1));
-    expect(find.byKey(Key('tvSeriesCard')), findsNothing);
-  });
 }

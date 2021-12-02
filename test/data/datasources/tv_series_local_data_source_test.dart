@@ -23,7 +23,7 @@ void main() {
       when(mockDatabaseHelper.insertWatchlistTv(testTvSeriesTable))
           .thenAnswer((_) async => 1);
       //act
-      final result = await dataSource.addWatchlist(testTvSeriesTable);
+      final result = await dataSource.insertWatchlist(testTvSeriesTable);
       //assert
       expect(result, 'Added to Watchlist');
     });
@@ -33,7 +33,7 @@ void main() {
       when(mockDatabaseHelper.insertWatchlistTv(testTvSeriesTable))
           .thenThrow(Exception());
       // act
-      final call = dataSource.addWatchlist(testTvSeriesTable);
+      final call = dataSource.insertWatchlist(testTvSeriesTable);
       // assert
       expect(() => call, throwsA(isA<DatabaseException>()));
     });
@@ -46,7 +46,7 @@ void main() {
       when(mockDatabaseHelper.removeWatchlistTv(testTvSeriesTable))
           .thenAnswer((_) async => 1);
       // act
-      final result = await dataSource.deleteWatchlist(testTvSeriesTable);
+      final result = await dataSource.removeWatchlist(testTvSeriesTable);
       // assert
       expect(result, 'Removed from Watchlist');
     });
@@ -57,7 +57,7 @@ void main() {
       when(mockDatabaseHelper.removeWatchlistTv(testTvSeriesTable))
           .thenThrow(Exception());
       // act
-      final call = dataSource.deleteWatchlist(testTvSeriesTable);
+      final call = dataSource.removeWatchlist(testTvSeriesTable);
       // assert
       expect(() => call, throwsA(isA<DatabaseException>()));
     });

@@ -129,12 +129,14 @@ class TvSeriesDetailModel extends Equatable {
     return TvSeriesDetail(
       backdropPath: this.backdropPath,
       genres: this.genres.map((genre) => genre.toEntity()).toList(),
-      seasons: this.seasons.map((season) => season.toEntity()).toList(),
       id: this.id,
-      name: this.name,
+      originalName: this.originalName,
       overview: this.overview,
       posterPath: this.posterPath,
       firstAirDate: this.firstAirDate,
+      name: this.name,
+      numberOfEpisodes: this.numberOfEpisodes,
+      numberOfSeasons: this.numberOfSeasons,
       voteAverage: this.voteAverage,
       voteCount: this.voteCount,
     );

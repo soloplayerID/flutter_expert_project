@@ -5,7 +5,6 @@ import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/tv_series.dart';
 import 'package:ditonton/domain/entities/tv_series_detail.dart';
 import 'package:ditonton/presentation/provider/tv/tvseries_detail_notifier.dart';
-import 'package:ditonton/presentation/widgets/season_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -186,13 +185,6 @@ class DetailContent extends StatelessWidget {
                             Text(
                               'Seasons',
                               style: kHeading6,
-                            ),
-                            Column(
-                              children: <Widget>[
-                                ...tvSeries.seasons.map((item) {
-                                  return SeasonCard(item, tvSeries.id);
-                                }).toList(),
-                              ],
                             ),
                             SizedBox(height: 16),
                             Text(

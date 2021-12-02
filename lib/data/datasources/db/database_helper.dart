@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:ditonton/data/models/movie_table.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:ditonton/data/models/tv_series_table.dart';
+import 'package:sqflite/sqflite.dart';
 
 class DatabaseHelper {
   static DatabaseHelper? _databaseHelper;
@@ -21,8 +21,8 @@ class DatabaseHelper {
     return _database;
   }
 
-  final String _tblWatchlist = 'watchlist';
-  final String _tblWatchlistTv = 'watchlist_tv';
+  static const String _tblWatchlist = 'watchlist';
+  static const String _tblWatchlistTv = 'watchlist_tv';
 
   Future<Database> _initDb() async {
     final path = await getDatabasesPath();
@@ -33,8 +33,7 @@ class DatabaseHelper {
   }
 
   void _onCreate(Database db, int version) async {
-    try {
-      await db.execute('''
+    await db.execute('''
       CREATE TABLE  $_tblWatchlist (
         id INTEGER PRIMARY KEY,
         title TEXT,
@@ -43,7 +42,7 @@ class DatabaseHelper {
       );
     ''');
 
-      await db.execute('''
+    await db.execute('''
       CREATE TABLE  $_tblWatchlistTv (
         id INTEGER PRIMARY KEY,
         name TEXT,
@@ -51,9 +50,6 @@ class DatabaseHelper {
         posterPath TEXT
       );
     ''');
-    } catch (e) {
-    }
-    
   }
 
   Future<int> insertWatchlist(MovieTable movie) async {
@@ -94,12 +90,12 @@ class DatabaseHelper {
 
   /// Tv Series Database
 
-  Future<int> addWatchlistTv(TvSeriesTable tvSeries) async {
+  Future<int> insertWatchlistTv(TvSeriesTable tvSeries) async {
     final db = await database;
     return await db!.insert(_tblWatchlistTv, tvSeries.toJson());
   }
 
-  Future<int> deleteWatchlistTv(TvSeriesTable tvSeries) async {
+  Future<int> removeWatchlistTv(TvSeriesTable tvSeries) async {
     final db = await database;
     return await db!.delete(
       _tblWatchlistTv,
