@@ -768,13 +768,6 @@ DA:28,9
 LF:11
 LH:11
 end_of_record
-SF:lib\domain\usecases\tv\get_season_detail.dart
-DA:9,1
-DA:11,1
-DA:12,2
-LF:3
-LH:3
-end_of_record
 SF:lib\data\repositories\movie_repository_impl.dart
 DA:17,1
 DA:23,1
@@ -990,6 +983,13 @@ LF:3
 LH:3
 end_of_record
 SF:lib\domain\usecases\tv\get_populer_tv_series.dart
+DA:9,1
+DA:11,1
+DA:12,2
+LF:3
+LH:3
+end_of_record
+SF:lib\domain\usecases\tv\get_season_detail.dart
 DA:9,1
 DA:11,1
 DA:12,2
