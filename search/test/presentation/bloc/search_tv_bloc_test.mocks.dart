@@ -2,6 +2,8 @@
 // in search/test/presentation/bloc/search_tv_bloc_test.dart.
 // Do not manually edit this file.
 
+// ignore_for_file: camel_case_types
+
 import 'dart:async' as _i5;
 
 import 'package:core/domain/entities/tvseries.dart' as _i7;
