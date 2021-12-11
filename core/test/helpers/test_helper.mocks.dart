@@ -2,6 +2,8 @@
 // in core/test/helpers/test_helper.dart.
 // Do not manually edit this file.
 
+// ignore_for_file: camel_case_types
+
 import 'dart:async' as _i9;
 import 'dart:convert' as _i27;
 import 'dart:typed_data' as _i28;
