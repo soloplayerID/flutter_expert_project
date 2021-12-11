@@ -2,6 +2,8 @@
 // in toprated/test/helpers/test_helper.dart.
 // Do not manually edit this file.
 
+// ignore_for_file: camel_case_types
+
 import 'dart:async' as _i8;
 import 'dart:convert' as _i26;
 import 'dart:typed_data' as _i27;

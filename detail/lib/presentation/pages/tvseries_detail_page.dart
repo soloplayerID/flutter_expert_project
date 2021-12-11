@@ -3,7 +3,6 @@ import 'package:core/domain/entities/genre.dart';
 import 'package:core/domain/entities/tvseries.dart';
 import 'package:core/domain/entities/tvseries_detail.dart';
 import 'package:core/presentation/bloc/watchlist/watchlist_bloc.dart';
-import 'package:core/presentation/widgets/season_card_list.dart';
 import 'package:detail/presentation/bloc/detail_tv_bloc.dart';
 import 'package:detail/presentation/bloc/recommendation/recommendation_tv_bloc.dart';
 import 'package:detail/presentation/bloc/watchlist_status/watchlist_status_tv_bloc.dart';
@@ -68,18 +67,6 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
                       ));
   }
 
-  String _showGenres(List<Genre> genres) {
-    String result = '';
-    for (var genre in genres) {
-      result += genre.name + ', ';
-    }
-
-    if (result.isEmpty) {
-      return result;
-    }
-
-    return result.substring(0, result.length - 2);
-  }
 }
 
 class DetailContent extends StatelessWidget {
@@ -227,16 +214,6 @@ class DetailContent extends StatelessWidget {
     return result.substring(0, result.length - 2);
   }
 
-  String _showDuration(int runtime) {
-    final int hours = runtime ~/ 60;
-    final int minutes = runtime % 60;
-
-    if (hours > 0) {
-      return '${hours}h ${minutes}m';
-    } else {
-      return '${minutes}m';
-    }
-  }
 
   Widget buildRecommendationCard(List<TvSeries> recommendations) {
     return Container(
