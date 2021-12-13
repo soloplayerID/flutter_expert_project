@@ -2,6 +2,7 @@ import 'package:about/about.dart';
 import 'package:core/presentation/pages/home_tv_page.dart';
 import 'package:detail/presentation/pages/movie_detail_page.dart';
 import 'package:core/presentation/pages/home_movie_page.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:popular/presentation/pages/popular_movies_page.dart';
 import 'package:popular/presentation/pages/popular_tvseries_page.dart';
 import 'package:search/presentation/bloc/search_tv_bloc.dart';
@@ -45,6 +46,8 @@ import 'package:search/presentation/bloc/search_movie_bloc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+  FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
   di.init();
   runApp(MyApp());
 }
